@@ -92,9 +92,40 @@ describe(`Round`, () => {
 
         const currentDeck = new Deck([card1, card2, card3]);
         const round = new Round(currentDeck)
-
         
         expect(round.takeTurn('true')).to.equal(`Correct!`)
         expect(round.takeTurn('true')).to.equal(`Incorrect!`)
+    })
+
+    it(`should calculate percentage of correct answers`, () => {
+        const card1 = new Card(13, "The callback function for map() returns a modified version of the current element.", ["true", "false"], "true");
+        const card2 = new Card(22, "Which prototype method is used to iterate over each property of an object?", ["Object.keys()", "Object.values()", "reduce()"],"Object.keys()");
+        const card3 = new Card(10, "Which iteration method returns the first array element where the callback function returns true", ["find()", "filter()", "forEach()"], "find()");
+
+        const currentDeck = new Deck([card1, card2, card3]);
+        const round = new Round(currentDeck)
+        
+        round.takeTurn(`true`);
+        round.takeTurn(`true`);
+        round.takeTurn(`find()`);
+
+        let calculateCorrect = round.calculatePercentCorrect();
+
+        expect(calculateCorrect).to.equal(66)
+    })
+
+    it(`should give a round ending message`, () => {
+        const card1 = new Card(13, "The callback function for map() returns a modified version of the current element.", ["true", "false"], "true");
+        const card2 = new Card(22, "Which prototype method is used to iterate over each property of an object?", ["Object.keys()", "Object.values()", "reduce()"],"Object.keys()");
+        const card3 = new Card(10, "Which iteration method returns the first array element where the callback function returns true", ["find()", "filter()", "forEach()"], "find()");
+
+        const currentDeck = new Deck([card1, card2, card3]);
+        const round = new Round(currentDeck)
+        
+        round.takeTurn(`true`);
+        round.takeTurn(`true`);
+        round.takeTurn(`find()`);
+
+        expect(round.endRound()).to.equal(`** Round over! ** You answered 66% of the questions correctly!`)
     })
 })    
