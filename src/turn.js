@@ -22,7 +22,7 @@ class Turn {
     }
 
     giveFeedback() {
-        if (this.userGuess === this.card.correctAnswer) {
+        if (this.evaluateGuess()) {
             return `Correct!`;
         }
         return `Incorrect!`;
