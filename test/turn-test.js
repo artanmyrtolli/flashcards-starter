@@ -24,7 +24,7 @@ describe(`Turn`, () => {
         const turn = new Turn(`object`, card)
 
         expect(turn.card.id).to.equal(1)
-        expect(turn.card.answer).to.equal(`object`)
+        expect(turn.card).to.equal(card);
 
     })
 
@@ -35,7 +35,7 @@ describe(`Turn`, () => {
 
         const guess = turn.returnGuess();
 
-        expect(guess).to.equal.to(`object`);
+        expect(guess).to.equal(`object`);
     })
 
     it(`should be able to return the current card in play`, () => {
@@ -47,7 +47,7 @@ describe(`Turn`, () => {
         const currentCard = turn.returnCard();
 
         expect(currentCard.id).to.equal(1);
-        expect(currentCard.answers).to.equal(['object', 'array', 'function']);
+        expect(currentCard).to.equal(card);
     })
 
 
@@ -68,18 +68,13 @@ describe(`Turn`, () => {
     })
 
     it(`should give the user feedback on their guess`, () => {
-
         const card = new Card(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object');
-        const card2 = new Card(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
 
         const turn = new Turn(`object`, card);
-        const turn2 = new Turn(`wrong`, card2);
-
+ 
         const feedback = turn.giveFeedback();
-        const feedback2 = turn2.giveFeedback();
-
+  
         expect(feedback).to.equal(`Correct!`);
-        expect(feedback2).to.equal(`Incorrect!`);
     })
 
 })
