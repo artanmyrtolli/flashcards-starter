@@ -25,7 +25,7 @@ class Game {
 
   start(){
     const cards = data.prototypeData.map(e => {
-      const cards =  new Card(e.id, e.question, e.answers, e.correctAnswer);
+      return new Card(e.id, e.question, e.answers, e.correctAnswer);
     })
       const deck = new Deck(cards);
       const round = new Round(deck);
