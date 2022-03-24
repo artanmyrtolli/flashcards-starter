@@ -23,15 +23,24 @@ class Game {
   }
 
   start(){
-    const cards = data.prototypeData.map(e => {
+    let cards = data.prototypeData.map(e => {
       return new Card(e.id, e.question, e.answers, e.correctAnswer);
     })
-      const deck = new Deck(cards);
+      cards = this.shuffleCards(cards)
+      let deck = new Deck(cards);
       const round = new Round(deck);
       this.printMessage(deck, round)
       this.printQuestion(round)
       this.round = round;
       return round
+  }
+
+  shuffleCards(cards) {
+    let shuffled = cards
+      .map(card => ({ card, randNum: Math.random() }))
+      .sort((a, b) => a.randNum - b.randNum)
+      .map(({ card }) => card)
+    return shuffled
   }
 }
 
