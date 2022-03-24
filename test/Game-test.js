@@ -5,7 +5,8 @@ const Game = require('../src/Game');
 const Deck = require('../src/Deck');
 
 var newGame = new Game()
-var startGame = newGame.start()
+var testing = true;
+var startGame = newGame.start(testing)
 
 describe(`Game`, () => {
     it(`should instantiate a game`, () => {
