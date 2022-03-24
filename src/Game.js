@@ -22,15 +22,17 @@ class Game {
     return this.round;
   }
 
-  start(){
+  start(testing){
     let cards = data.prototypeData.map(e => {
       return new Card(e.id, e.question, e.answers, e.correctAnswer);
     })
       cards = this.shuffleCards(cards)
       let deck = new Deck(cards);
       const round = new Round(deck);
-      this.printMessage(deck, round)
-      this.printQuestion(round)
+      if (!testing) {
+        this.printMessage(deck, round)
+        this.printQuestion(round)
+      }
       this.round = round;
       return round
   }
