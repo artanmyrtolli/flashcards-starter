@@ -31,7 +31,6 @@ class Game {
       const round = new Round(deck);
       this.printMessage(deck, round)
       this.printQuestion(round)
-      // return round
   }
 }
 
