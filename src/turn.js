@@ -14,10 +14,8 @@ class Turn {
 
     evaluateGuess() {
         if (this.userGuess === this.card.correctAnswer) {
-            this.correct = true;
             return true;
         }
-        this.correct = false;
         return false;
     }
 
