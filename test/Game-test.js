@@ -20,4 +20,8 @@ describe(`Game`, () => {
         expect(newGame.currentRound()).to.equal(startGame)
     })
 
+    it(`can shuffle the cards`, () => {
+        const array = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+        expect(newGame.shuffleCards(array)).to.not.deep.equal(array)
+    })
 });
