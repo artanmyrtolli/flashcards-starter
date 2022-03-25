@@ -1,71 +1,87 @@
-# FlashCards Starter Kit
+# FlashCards
+## Overview
 
-## Fork This Repo
+* FlashCards is a quiz designed to be run in the terminal/command line. The application presents users one question at a time, and allows them to select from a list of possible answers. At the end, the application will calculate and return the percentage of correct answers. 
 
-On the top right corner of this page, click the **Fork** button.
+## Technologies Used
+* JavaScript (ES6)
+* MAC terminal
+* [mocha testing framework](https://mochajs.org/)
+* [chai assertion library](https://www.chaijs.com/)
+* git 
+* [gitHub](https://github.com)
 
-## Setup
+---
+---
+## Application in action
 
-Clone down the forked repo (from your GitHub). Since you don't want to name your project "flashcards-starter", you can use an optional argument when you run `git clone` (you replace the `[...]` with the terminal command arguments):
+
+---
+## Installation/Setup Instructions
+
+1. On the top right corner of this page, click the `Fork` button.
+
+2. Once forked, click the green **Code** button, and copy the remote address. 
+    * *Note: SSH is recommended over HTTPS, as SSH is more secure, but either will work.*
+
+3. In your terminal, type the following, replacing [remote-address] with the address copied during step 2, above.
 
 ```bash
-git clone [remote-address] [what you want to name the repo]
+git clone [remote-address] 
 ```
 
-Once you have cloned the repo, change into the directory and install the library dependencies. Run:
+4. Once you have cloned the repo, change directories into the directory:
 
 ```bash
-npm install
+cd flashcards-starter
 ```
 
-To verify that it is setup correctly, run `npm test` in your terminal. You should have 5 pending tests in your `Card` test file that show up.
-
-Running `node index.js` from the root of your project should result in the following message being displayed in your terminal: 
-
-```bash
-Your project is running...
-```
-
-*Note that you will not need to you run your server until you are instantiating your `Game` class in Iteration 3. Prior to that, you should be using TDD to drive your code. You should check the functionality of your application by running your tests via `npm test`.*
-
-
-## Where to Add Your Code
-
-### JavaScript
-
-**Create all of your feature code files in the `src` directory.**
-
-We will be using the `module.exports` and `require` syntax to share code across files.
-
-## How to View Your Code in Action
-
-Once you are working through Iteration 3, you will want to start your server to test your functionality.
-In the terminal, run:
+5. Run the game:
 
 ```bash
 node index.js
 ```
+---
+## User interactions
 
-When the game is functioning appropriately, you will be prompted for each question, have the opportunity to select an answer, and will be given feedback. You will be able to play through the entire deck of cards:
+### Start of game
 
-![flash cards example gif](https://media.giphy.com/media/1zkb1q58eTiTH6D7wc/giphy.gif)
+* When the game starts, you will be greeted with the message  "Welcome to FlashCards! You are playing with 30 cards."
+
+
+Note:  the cards will be in random order each time the application is run.
+
+
+### Quit current game
+* To end the game while it is in progress, press `CTRL` + `C` on your keyboard at any time during the game.
+    
+### Identify selected Answer
+
+* A list of **possible answers** will be displayed under each question. 
+* The **selected answer** will be blue, while unselected answers will be white. 
+    * The first answer on the list will be selected by default, each time a new question is presented.
+
+### Select different answer
+
+* To select an answer other than the currently selected answer, use the &#8593; or &#8595;  keys on your keyboard. 
+
+* You may also type in the number that corresponds to the answer you would like to submit.
+
+### Submit guess
+
+* Once the answer you believe to be correct is selected or corresponding number is typed in, press `Enter` on your keyboard to submit. 
+    * Your guess will be displayed, in blue, next to the question. 
+    * The question's possible answers will be replaced by feedback, indicating whether your guess was correct or incorrect.
+    * The application will pause to allow you to review the feedback.
+
+
+### Moving to the next question
+
+* Once you have reviewed the provided feedback for the previous question, press `Enter` on your keyboard to display both the next question, and its possible answers. 
+
+### End of game
+
+* Once you have completed all cards, you will receive a message that includes, "** Round over! **" along with the percentage of questions you answered correctly.
+  
 
 ---
-
-## Test Files Organization
-
-Similar to feature code, your test code needs to be put in a specific place for it to run successfully.
-
-**Put all of your test files in the `test` directory.** As a convention, all test filenames should end with `-test.js`. For instance: `Round-test.js`.
-
-## Running Your Tests
-
-Run your test suite using the command:
-
-```bash
-npm test
-```
-
-The test results will output to the terminal.
-
-
