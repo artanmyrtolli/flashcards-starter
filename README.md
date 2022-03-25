@@ -15,6 +15,7 @@
 ---
 ## Application in action
 
+![flashcards](https://user-images.githubusercontent.com/92772785/160030546-0ae3c8b2-0490-4b89-a45a-c127f1bcb9f4.gif)
 
 ---
 ## Installation/Setup Instructions
